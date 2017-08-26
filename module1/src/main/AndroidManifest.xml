@@ -3,5 +3,7 @@
 
     <application
         android:theme="@style/AppTheme">
+        <activity android:name=".Module1Activity">
+        </activity>
     </application>
 </manifest>

@@ -28,10 +28,14 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     if (!isBuildMudle.toBoolean()) {
-        compile project(':main')
-        compile project(':module1')
-        compile project(':module2')
+        debugCompile project(path: ':main', configuration: "debug")
+        releaseCompile project(path: ':main', configuration: "release")
+        debugCompile project(path: ':module1', configuration: "debug")
+        releaseCompile project(path: ':module1', configuration: "release")
+        debugCompile project(path: ':module2', configuration: "debug")
+        releaseCompile project(path: ':module2', configuration: "release")
     } else {
-        compile project(':base')
+        debugCompile project(path: ':base', configuration: "debug")
+        releaseCompile project(path: ':base', configuration: "release")
     }
 }

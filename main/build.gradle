@@ -11,16 +11,17 @@ android {
         main {
             if (isBuildMudle.toBoolean()) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     exclude 'module/**'
                 }
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
     }
 
     defaultConfig {
+        publishNonDefault true
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -47,10 +48,12 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
 
-    compile project(':base')
-    annotationProcessor 'com.alibaba:arouter-compiler:' + rootProject.ext.arouterCompilerVersion
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    debugCompile project(path: ':base', configuration: "debug")
+    releaseCompile project(path: ':base', configuration: "release")
+    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
+    annotationProcessor 'com.alibaba:arouter-compiler:' + rootProject.ext.arouterCompilerVersion
 }
