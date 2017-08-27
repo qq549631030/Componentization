@@ -63,24 +63,6 @@ public class BaseMvpPresenter<V extends BaseMvpView> implements Cancelable {
      */
     @Override
     public boolean cancel(Object... args) {
-        return true;
-    }
-
-    /**
-     * 加载数据
-     *
-     * @param params
-     * @param <T>
-     */
-    public <T> void loadData(T params) {
-    }
-
-    /**
-     * 更新数据
-     *
-     * @param params
-     * @param <T>
-     */
-    public <T> void updateData(T params) {
+        return false;
     }
 }

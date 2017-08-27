@@ -116,46 +116,4 @@ public class BaseFragment<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
     public void showError(Object... errorData) {
 
     }
-
-    /**
-     * 加载数据成功
-     *
-     * @param data
-     */
-    @Override
-    public <T> void onLoadDataSuccess(T data) {
-
-    }
-
-    /**
-     * 加载数据失败
-     *
-     * @param errCode
-     * @param errData
-     */
-    @Override
-    public void onLoadDataFail(String errCode, Object... errData) {
-
-    }
-
-    /**
-     * 更新数据成功
-     *
-     * @param data
-     */
-    @Override
-    public <T> void onUpdateDataSuccess(T data) {
-
-    }
-
-    /**
-     * 更新数据失败
-     *
-     * @param errCode
-     * @param errData
-     */
-    @Override
-    public void onUpdateDataFail(String errCode, Object... errData) {
-
-    }
 }

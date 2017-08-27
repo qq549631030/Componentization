@@ -1,4 +1,4 @@
-package cn.hx.mvp.model;
+package cn.hx.mvp;
 
 /**
  * Created by huangxiang on 2017/8/26.

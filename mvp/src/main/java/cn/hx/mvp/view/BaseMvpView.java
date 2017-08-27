@@ -19,36 +19,4 @@ public interface BaseMvpView {
      * @param errorData 错误数据(建议[errorCode,errorMsg,other])
      */
     void showError(Object... errorData);
-
-    /**
-     * 加载数据成功
-     *
-     * @param data
-     * @param <T>
-     */
-    <T> void onLoadDataSuccess(T data);
-
-    /**
-     * 加载数据失败
-     *
-     * @param errCode
-     * @param errData
-     */
-    void onLoadDataFail(String errCode, Object... errData);
-
-    /**
-     * 更新数据成功
-     *
-     * @param data
-     * @param <T>
-     */
-    <T> void onUpdateDataSuccess(T data);
-
-    /**
-     * 更新数据失败
-     *
-     * @param errCode
-     * @param errData
-     */
-    void onUpdateDataFail(String errCode, Object... errData);
 }
