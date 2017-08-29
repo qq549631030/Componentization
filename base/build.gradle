@@ -35,4 +35,5 @@ dependencies {
 
     compile 'com.alibaba:arouter-api:' + rootProject.ext.arouterApiVersion
     compile 'com.blankj:utilcode:1.8.3'
+    compile 'com.yanzhenjie:permission:1.1.0'
 }
