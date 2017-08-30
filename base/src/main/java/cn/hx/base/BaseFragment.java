@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import org.greenrobot.eventbus.EventBus;
+
 import cn.hx.mvp.presenter.BaseMvpPresenter;
 import cn.hx.mvp.view.BaseMvpView;
 import cn.hx.mvp.view.BaseViewState;
@@ -28,6 +30,7 @@ public class BaseFragment<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = onCreatePresenter();
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -86,6 +89,12 @@ public class BaseFragment<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
     public void onDetach() {
         isActivityAttached = false;
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
     }
 
     protected P onCreatePresenter() {
