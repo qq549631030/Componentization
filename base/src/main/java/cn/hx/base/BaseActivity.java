@@ -3,6 +3,8 @@ package cn.hx.base;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 import cn.hx.mvp.presenter.BaseMvpPresenter;
 import cn.hx.mvp.view.BaseMvpView;
 import cn.hx.mvp.view.BaseViewState;
@@ -22,6 +24,7 @@ public class BaseActivity<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
         if (presenter != null) {
             presenter.attachView((V) this);
         }
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -52,6 +55,7 @@ public class BaseActivity<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
         if (presenter != null) {
             presenter.detachView();
         }
+        EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 
