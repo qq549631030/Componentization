@@ -4,6 +4,12 @@ if (isBuildMudle.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion

@@ -29,7 +29,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
     testCompile 'junit:junit:4.12'
-
+    compile project(':annotations')
     debugCompile project(path: ':mvp', configuration: "debug")
     releaseCompile project(path: ':mvp', configuration: "release")
 

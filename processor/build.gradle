@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':annotations')
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+jar {
+    baseName = 'annotations-compiler'
+    version = '0.0.1'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
