@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import cn.hx.mvp.presenter.BaseMvpPresenter;
 import cn.hx.mvp.view.BaseMvpView;
@@ -57,6 +58,10 @@ public class BaseActivity<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
         }
         EventBus.getDefault().unregister(this);
         super.onDestroy();
+    }
+
+    @Subscribe
+    public void onNoOpEvent(Object event) {
     }
 
     protected P onCreatePresenter() {

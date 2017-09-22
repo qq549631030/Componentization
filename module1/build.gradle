@@ -29,8 +29,6 @@ android {
         publishNonDefault true
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
         //ARouter
         javaCompileOptions {
             annotationProcessorOptions {
@@ -55,8 +53,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
 
-    debugCompile project(path: ':base', configuration: "debug")
-    releaseCompile project(path: ':base', configuration: "release")
+    compile project(path: ':base')
     annotationProcessor 'com.alibaba:arouter-compiler:' + rootProject.ext.arouterCompilerVersion
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'

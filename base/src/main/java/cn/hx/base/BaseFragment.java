@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import cn.hx.mvp.presenter.BaseMvpPresenter;
 import cn.hx.mvp.view.BaseMvpView;
@@ -95,6 +96,10 @@ public class BaseFragment<P extends BaseMvpPresenter<V>, V extends BaseMvpView> 
     public void onDestroy() {
         EventBus.getDefault().unregister(this);
         super.onDestroy();
+    }
+
+    @Subscribe
+    public void onNoOpEvent(Object event) {
     }
 
     protected P onCreatePresenter() {
