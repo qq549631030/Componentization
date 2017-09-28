@@ -3,10 +3,10 @@
 buildscript {
     repositories {
         jcenter()
-        google()
+//        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:'+localGradlePluginVersion
+        classpath 'com.android.tools.build:gradle:' + localGradlePluginVersion
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,7 +16,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        google()
+//        google()
+        maven{
+            url "http://localhost:8081/repository/maven-releases/"
+        }
     }
 }
 
@@ -25,8 +28,6 @@ task clean(type: Delete) {
 }
 
 ext {
-
-
     // Sdk and tools
     minSdkVersion = 15
     targetSdkVersion = 26
@@ -34,7 +35,7 @@ ext {
     buildToolsVersion = localBuildToolsVersion
 
     // App dependencies
-    supportLibraryVersion = '26.1.0'
+    supportLibraryVersion = '25.3.1'
     //ARouter
     arouterApiVersion = '1.2.2'
     arouterCompilerVersion = '1.1.3'

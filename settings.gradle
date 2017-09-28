@@ -1,1 +1,1 @@
-include ':app', ':base', ':module1', ':module2', ':main', ':mvp', ':annotations', ':processor'
+include ':app', ':base', ':module1', ':module2', ':main', ':annotations', ':processor', ':androidmvp'
